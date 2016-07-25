@@ -7,7 +7,10 @@ This file creates your application.
 """
 
 import os
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request
+import requests
+import json
+
 
 app = Flask(__name__)
 
@@ -28,6 +31,29 @@ def home():
 def about():
     """Render the website's about page."""
     return render_template('about.html')
+
+
+@app.route('/contact/', methods=['POST'])
+def contact():
+    """Send form to Mailgun REST API"""
+
+    MAILGUN_API_KEY = os.environ.get('MAILGUN_API_KEY')
+    EMAIL_ADDR = os.environ.get('EMAIL_ADDR')
+
+    name = request.form['name']
+    email = request.form['email']
+    phone = request.form['phone']
+    message = request.form['message']
+
+    response = requests.post(
+        "https://api.mailgun.net/v3/flaishans.com/messages",
+        auth=("api", MAILGUN_API_KEY),
+        data={"from": name + " <" + email + ">",
+              "to": EMAIL_ADDR,
+              "subject": "Message from Flaishans.com",
+              "text": message + " Phone: " + phone})
+
+    return json.dumps({'success': response.content}), 200, {'ContentType': 'application/json'}
 
 
 ###
