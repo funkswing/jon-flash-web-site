@@ -10,11 +10,12 @@ import os
 from flask import Flask, render_template, request
 import requests
 import json
+from blog import blog
 
 
 app = Flask(__name__)
-
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'this_should_be_configured')
+app.register_blueprint(blog)
 
 
 ###
