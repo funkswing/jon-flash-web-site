@@ -11,6 +11,7 @@ $(function() {
         $('html, body').stop().animate({
             scrollTop: $($anchor.attr('href')).offset().top
         }, 1500, 'easeInOutExpo');
+        window.location.hash = "/" + $anchor.attr('href').slice(1); // $anchor.text().toLowerCase();
         event.preventDefault();
     });
 });
@@ -39,5 +40,10 @@ $('.navbar-collapse ul li a:not(.dropdown-toggle)').click(function() {
 // Toggle modal from #id in URL, e.g. /#portfolioModal1
 if(window.location.hash) {
     var hash = window.location.hash;
-    $(hash).modal('toggle');
+    if ($.inArray(hash.slice(1), ['portfolio', 'about', 'contact']) > -1) {
+        $(".page-scroll a:contains('Portfolio')").click();
+        console.log(hash.slice(1));
+    } else {
+        $(hash).modal('toggle');
+    }
 }

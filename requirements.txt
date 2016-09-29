@@ -3,6 +3,10 @@
 # ----------------------
 flask
 requests
+Flask-PyMongo
+markdown
+pygments
+python-slugify
 
 # ----------------------
 # Testing

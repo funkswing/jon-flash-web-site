@@ -11,10 +11,14 @@ from flask import Flask, render_template, request
 import requests
 import json
 from blog import blog
+from flask.ext.pymongo import PyMongo
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'this_should_be_configured')
+app.config['MONGO_DBNAME'] = 'blog'
+mongo = PyMongo(app)
+app.mongo = mongo  # https://github.com/dcrosta/flask-pymongo/issues/11
 app.register_blueprint(blog)
 
 
@@ -25,13 +29,12 @@ app.register_blueprint(blog)
 @app.route('/')
 def home():
     """Render website's home page."""
-    return render_template('index.html')  # return render_template('home.html')
-
-
-@app.route('/about/')
-def about():
-    """Render the website's about page."""
-    return render_template('about.html')
+    return render_template(
+        'index.html',
+        logo="logo",
+        header="Jon Flaishans",
+        skills="Web Application Developer - RESTful APIs - Cloud Computing Engineer"
+    )
 
 
 @app.route('/contact/', methods=['POST'])
@@ -82,7 +85,12 @@ def add_header(response):
 @app.errorhandler(404)
 def page_not_found(error):
     """Custom 404 page."""
-    return render_template('404.html'), 404
+    return render_template(
+        '404.html',
+        logo="404-error",
+        header="404 - Not Found :'(",
+        skills="""<a href="/" style="color: white;">Please navigate back to the good stuff</a>"""
+    ), 404
 
 
 if __name__ == '__main__':

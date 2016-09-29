@@ -49,14 +49,14 @@ hr.star-light {
 }
 hr.star-light:after {
   background-color: #18BC9C;
-  color: white;
+  color: red;
 }
 hr.star-primary {
-  border-color: #2C3E50;
+  border-color: #500200;
 }
 hr.star-primary:after {
   background-color: white;
-  color: #2C3E50;
+  color: #500200;
 }
 .img-centered {
   margin: 0 auto;
@@ -151,7 +151,7 @@ section.success a:hover,
 section.success a:focus,
 section.success a:active,
 section.success a.active {
-  color: #2C3E50;
+  color: #500200;
   outline: none;
 }
 @media (max-width: 767px) {
@@ -283,14 +283,14 @@ footer h3 {
 }
 footer .footer-above {
   padding-top: 50px;
-  background-color: #2C3E50;
+  background-color: #500200;
 }
 footer .footer-col {
   margin-bottom: 50px;
 }
 footer .footer-below {
   padding: 25px 0;
-  background-color: #233140;
+  background-color: #370100;
 }
 .btn-social {
   display: inline-block;
@@ -361,7 +361,7 @@ footer .footer-below {
   height: 75px;
   width: 1px;
   margin-left: 35px;
-  background-color: #2C3E50;
+  background-color: #500200;
   transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   /* IE 9 */
@@ -372,7 +372,7 @@ footer .footer-below {
 .portfolio-modal .close-modal .lr .rl {
   height: 75px;
   width: 1px;
-  background-color: #2C3E50;
+  background-color: #500200;
   transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   /* IE 9 */

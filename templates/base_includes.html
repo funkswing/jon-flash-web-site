@@ -1,24 +1,22 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-  {% block head %}
   {% include "head.html" %}
-  <title>{% block title %}{{ title }} Jon Flaishans | Web Application Developer - RESTful APIs - Cloud Computing Engineer{% endblock %}</title>
-  {% endblock %}
 </head>
 
 <body>
 
-  {% block nav %}{% include "nav.html" %}{% endblock %}
+  {% include nav %}
 
-
-  {% block header %}{% include "header.html" %}{% endblock %}
+  <header>
+    {% include "header.html" %}
+  </header>
 
   <div id="main" role="main">
     {% block main %}{% endblock %}
   </div>
 
-  <footer class="text-center">
+  <footer>
     {% include "footer.html" %}
   </footer>
 
@@ -31,7 +29,7 @@
 
 
   <!-- Additional JavaScript libraries and plugins... -->
-  {% block js %}{% include 'javascript.html' %}{% endblock %}
+  {% block js %}{% endblock %}
 
 
   <!-- mathiasbynens.be/notes/async-analytics-snippet Change UA-XXXXX-X to be your site's ID -->
