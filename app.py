@@ -7,19 +7,42 @@ This file creates your application.
 """
 
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, g
 import requests
 import json
 from blog import blog
 from flask.ext.pymongo import PyMongo
+from flask_admin import Admin
+from admin import PostView
 
 
+# Flask App Setup
 app = Flask(__name__)
+
+# Get hidden values from Heroku app environ variables
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'this_should_be_configured')
-app.config['MONGO_DBNAME'] = 'blog'
-mongo = PyMongo(app)
-app.mongo = mongo  # https://github.com/dcrosta/flask-pymongo/issues/11
+app.config['MONGO_DBNAME'] = os.environ.get('MONGO_DBNAME', 'blog')
+
+# Register the Blog Flask Blueprint to the app
+app.mongo = PyMongo(app)
 app.register_blueprint(blog)
+
+# Flask-Admin
+# TODO: Removed for production until security is added
+# admin = Admin(app, name='microblog', template_mode='bootstrap3')
+# with app.app_context():  # http://stackoverflow.com/a/18522837/2136394
+#     admin.add_view(PostView(app.mongo.db["posts"]))
+
+
+# Helper function to safely get MongoDB connection
+def get_db():
+    """Opens a new database connection if there is none yet for the
+    http://flask.pocoo.org/docs/0.11/tutorial/dbcon/
+    current application context.
+    """
+    if not hasattr(g, 'mongo'):
+        g.mongo = mongo  # Flask-Mongo connection
+    return g.mongo.db
 
 
 ###

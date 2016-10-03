@@ -4,6 +4,8 @@
 flask
 requests
 Flask-PyMongo
+flask-admin
+flask-script
 markdown
 pygments
 python-slugify
