@@ -22,7 +22,8 @@ app = Flask(__name__)
 # Get hidden values from Heroku app environ variables
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'this_should_be_configured')
 app.config['MONGO_DBNAME'] = os.environ.get('MONGO_DBNAME', 'blog')
-app.config['URI'] = os.environ.get('MONGODB_URI', None)
+if os.environ.get('MONGODB_URI'):
+    app.config['MONGO_URI'] = os.environ.get('MONGODB_URI')
 
 # Register the Blog Flask Blueprint to the app
 app.mongo = PyMongo(app)
