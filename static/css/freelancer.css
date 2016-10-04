@@ -209,7 +209,7 @@ section.success a.active {
 }
 #portfolio .portfolio-item .portfolio-link .caption .caption-content h3,
 #portfolio .portfolio-item .portfolio-link .caption .caption-content h4 {
-  margin: 0;
+  margin: 0 0 10px 0;
 }
 #portfolio * {
   z-index: 2;
