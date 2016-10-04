@@ -11,7 +11,7 @@ from flask import Flask, render_template, request, g
 import requests
 import json
 from blog import blog
-from flask.ext.pymongo import PyMongo
+from flask_pymongo import PyMongo
 from flask_admin import Admin
 from admin import PostView
 
