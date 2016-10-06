@@ -32,12 +32,14 @@ var cbpAnimatedHeader = (function() {
 //										duration: 'slow',
 //                    easing: 'easeOutElastic'
 //                });
+						// Show "scroll-top" button
             $('.scroll-top').removeClass('hidden-sm hidden-xs');
             $('.scroll-top').fadeIn(500);
             }
 		else {
 			classie.remove( header, 'navbar-shrink' );
 //						$('.navbar-logo').fadeOut();
+						// Hide "scroll-top" button
             $('.scroll-top').fadeOut(500,  function() {
             $('.scroll-top').addClass('hidden-sm hidden-xs');
             });
