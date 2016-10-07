@@ -8,6 +8,7 @@ flask-admin
 markdown
 pygments
 python-slugify
+inflection
 
 # ----------------------
 # Testing

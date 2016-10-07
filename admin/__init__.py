@@ -10,7 +10,7 @@ class SubmitForm(form.Form):
     subtitle = fields.StringField('Sub-Title')
     body = fields.TextAreaField('Post')
     year_month = fields.HiddenField('year_month', default=datetime.utcnow().strftime("%Y%m"))
-    timestamp = fields.HiddenField('timestamp', default=datetime.utcnow().strftime("%A %x"))
+    timestamp = fields.HiddenField('timestamp', default=datetime.utcnow())
 
 
 class PostView(ModelView):

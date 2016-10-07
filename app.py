@@ -31,9 +31,9 @@ app.register_blueprint(blog)
 
 # Flask-Admin
 # TODO: Removed for production until security is added
-# admin = Admin(app, name='microblog', template_mode='bootstrap3')
-# with app.app_context():  # http://stackoverflow.com/a/18522837/2136394
-#     admin.add_view(PostView(app.mongo.db["posts"]))
+admin = Admin(app, name='microblog', template_mode='bootstrap3')
+with app.app_context():  # http://stackoverflow.com/a/18522837/2136394
+    admin.add_view(PostView(app.mongo.db["posts"]))
 
 
 # Helper function to safely get MongoDB connection
@@ -58,7 +58,9 @@ def home():
         'index.html',
         logo="logo",
         header="Jon Flaishans",
-        skills="Web Application Developer - RESTful APIs - Cloud Computing Engineer"
+        title="Software Portfolio",
+        skills="Web Application Developer - RESTful APIs - Cloud Computing Engineer",
+        description="Web Application Developer - RESTful APIs - Cloud Computing Engineer"
     )
 
 
