@@ -14,8 +14,18 @@ section.blog {
       outline: none;
     };
     h1, h2, h3, h4, h5, h6 {
+	  color: @brand-primary;
       .no-text-transform
     }
+	h2 {
+	  margin: 40px 0 20px 0;
+	}
+	blockquote {
+		p {
+		  color: @gray;
+		}
+		border-left: 5px solid @brand-success;
+	}
 }
 
 // Following 2 sections borrowed heavily from Start Bootstrap Clean Blog: https://startbootstrap.com/template-overviews/clean-blog/

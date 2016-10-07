@@ -412,7 +412,17 @@ section.blog h3,
 section.blog h4,
 section.blog h5,
 section.blog h6 {
+  color: #2C3E50;
   text-transform: none;
+}
+section.blog h2 {
+  margin: 40px 0 20px 0;
+}
+section.blog blockquote {
+  border-left: 5px solid #18BC9C;
+}
+section.blog blockquote p {
+  color: #555555;
 }
 .intro-header {
   background-color: #18BC9C;
