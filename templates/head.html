@@ -1,9 +1,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Jon Flaishans: Web Application Developer - RESTful APIs - Cloud Computing Engineer">
+    <title>{% block title %}{{ title }} | Jon Flaishans{% endblock %}</title>
+    <meta name="description" content="{{ description }}">
     <meta name="author" content="Jon Flaishans">
-    <link rel="canonical" href="http://www.flaishans.com">
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://www.flaishans.com/{{ url }}" />
+    <meta property="og:image" content=http://www.flaishans.com/static/img/logo-round-256.png" />
+    <meta property="og:description" content="{{ description }}" />
+    <link rel="canonical" href="http://www.flaishans.com/{{ url }}">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="https://www.flaishans.com/static/favicon.ico" /> {# http://www.xiconeditor.com/ #}
