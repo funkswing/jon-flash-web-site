@@ -54,3 +54,14 @@
 .no-text-transform() {
 	text-transform: none;
 }
+
+.word-wrap() {
+	/* Careful, this breaks the word wherever it is without a hyphen */
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	/* Adds a hyphen where the word breaks */
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+}

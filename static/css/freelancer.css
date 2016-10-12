@@ -325,7 +325,6 @@ footer .footer-below {
   z-index: 1049;
 }
 .scroll-top .btn {
-  font-size: 20px;
   width: 50px;
   height: 50px;
   border-radius: 100%;
@@ -405,6 +404,14 @@ section.blog a:active,
 section.blog a.active {
   color: #2C3E50;
   outline: none;
+  /* Careful, this breaks the word wherever it is without a hyphen */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  /* Adds a hyphen where the word breaks */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 section.blog h1,
 section.blog h2,
